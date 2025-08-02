@@ -1,0 +1,16 @@
+<!--feature-grid.wxml-->
+<view class="feature-grid">
+  <view 
+    class="feature-item" 
+    wx:for="{{features}}" 
+    wx:key="id"
+    data-id="{{item.id}}"
+    bindtap="onFeatureTap"
+  >
+    <view class="feature-icon-container">
+      <view class="feature-icon {{item.icon}}"></view>
+      <view class="feature-badge" wx:if="{{item.badge}}">{{item.badge}}</view>
+    </view>
+    <view class="feature-name">{{item.name}}</view>
+  </view>
+</view> 

@@ -1,0 +1,13 @@
+<!--feature-demo.wxml-->
+<view class="container">
+  <view class="demo-title">功能网格组件演示</view>
+  <feature-grid bind:featureTap="onFeatureTap" />
+  
+  <view class="result-section" wx:if="{{lastClicked}}">
+    <view class="result-title">最近点击的功能：</view>
+    <view class="result-content">
+      <text>ID: {{lastClicked.id}}</text>
+      <text>名称: {{lastClicked.name}}</text>
+    </view>
+  </view>
+</view> 

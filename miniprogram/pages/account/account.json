@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "我的账户",
+  "usingComponents": {
+    "account-asset-card": "/components/account-asset-card/account-asset-card",
+    "custom-navigation-bar": "/components/custom-navigation-bar/custom-navigation-bar"
+  }
+}

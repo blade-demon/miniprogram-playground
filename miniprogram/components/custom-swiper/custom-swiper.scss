@@ -1,0 +1,222 @@
+/* components/custom-swiper/custom-swiper.scss */
+.custom-swiper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.swiper-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.swiper-wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-item {
+  flex-shrink: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.default-image {
+  width: 100%;
+  height: 100%;
+}
+
+.default-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  color: #666;
+  font-size: 14px;
+}
+
+/* 自定义内容样式 */
+.custom-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.custom-image {
+  width: 100%;
+  height: 100%;
+}
+
+.custom-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  padding: 20px;
+  color: #fff;
+}
+
+.custom-title {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.custom-desc {
+  display: block;
+  font-size: 14px;
+  opacity: 0.9;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* 指示器样式 */
+.swiper-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.dot {
+  width: 4rpx;
+  height: 4rpx;
+  border-radius: 50%;
+  background-color: rgba(34, 34, 34, 0.15);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.dot::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.dot:hover::before {
+  opacity: 1;
+}
+
+.dot.active {
+  width: 34.4rpx;
+  height: 4rpx;
+  border-radius: 2rpx;
+  background-color: rgba(34, 34, 34, 0.15);
+  transform: none;
+}
+
+/* 指示器悬停效果 */
+.dot:hover {
+  background-color: rgba(34, 34, 34, 0.3);
+}
+
+.dot.active:hover {
+  background-color: rgba(34, 34, 34, 0.25);
+}
+
+/* 指示器主题变体 */
+.swiper-dots.dark {
+  .dot {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  
+  .dot:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  
+  .dot.active {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .dot.active:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+}
+
+/* 箭头样式 */
+.swiper-arrows {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  pointer-events: none;
+}
+
+.arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  transition: all 0.3s ease;
+}
+
+.arrow:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.arrow-icon {
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* 响应式设计 */
+@media (max-width: 375px) {
+  .arrow {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .arrow-icon {
+    font-size: 18px;
+  }
+  
+  .swiper-dots {
+    bottom: 8px;
+    gap: 6px;
+  }
+  
+  .dot {
+    width: 3rpx;
+    height: 3rpx;
+  }
+  
+  .dot.active {
+    width: 28rpx;
+    height: 3rpx;
+  }
+} 

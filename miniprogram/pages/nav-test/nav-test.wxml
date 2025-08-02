@@ -1,0 +1,152 @@
+<!--nav-test.wxml-->
+<view class="container">
+  <view class="header">
+    <text class="title">导航栏背景图片测试</text>
+    <text class="subtitle">测试各种导航栏背景图片设置功能</text>
+  </view>
+
+  <view class="test-section">
+    <view class="section-title">基础功能测试</view>
+    <view class="button-group">
+      <button class="test-button primary" bindtap="setBasicBackgroundImage">设置基础背景图片</button>
+      <button class="test-button secondary" bindtap="setGradientBackgroundImage">设置渐变背景图片</button>
+      <button class="test-button warning" bindtap="setTimeBasedBackgroundImage">设置时间相关背景</button>
+    </view>
+  </view>
+
+  <view class="test-section">
+    <view class="section-title">主题功能测试</view>
+    <view class="button-group">
+      <button class="test-button theme-light" bindtap="setLightTheme">浅色主题</button>
+      <button class="test-button theme-dark" bindtap="setDarkTheme">深色主题</button>
+      <button class="test-button theme-blue" bindtap="setBlueTheme">蓝色主题</button>
+      <button class="test-button theme-purple" bindtap="setPurpleTheme">紫色主题</button>
+    </view>
+  </view>
+
+  <view class="test-section">
+    <view class="section-title">高级功能测试</view>
+    <view class="button-group">
+      <button class="test-button success" bindtap="setBackgroundWithLoading">带加载状态设置</button>
+      <button class="test-button info" bindtap="preloadImage">预加载图片</button>
+      <button class="test-button danger" bindtap="clearBackgroundImage">清除背景图片</button>
+    </view>
+  </view>
+
+  <view class="test-section">
+    <view class="section-title">动态切换测试</view>
+    <view class="button-group">
+      <button class="test-button dynamic" bindtap="switchRandomImage">随机切换图片</button>
+      <button class="test-button dynamic" bindtap="cycleThroughImages">循环切换图片</button>
+    </view>
+  </view>
+
+  <view class="status-section">
+    <view class="section-title">当前状态</view>
+    <view class="status-item">
+      <text class="status-label">背景图片:</text>
+      <text class="status-value">{{currentImage || '无'}}</text>
+    </view>
+    <view class="status-item">
+      <text class="status-label">前景色:</text>
+      <text class="status-value">{{currentFrontColor}}</text>
+    </view>
+    <view class="status-item">
+      <text class="status-label">背景色:</text>
+      <text class="status-value">{{currentBackgroundColor}}</text>
+    </view>
+  </view>
+</view> 
+
+<!-- 滚动监听导航栏演示 -->
+<navigation-bar 
+  title="滚动导航栏演示" 
+  fixed="{{isFixed}}"
+  show="{{isShow}}"
+  enableScroll="{{enableScroll}}"
+  transparentBackground="{{transparentBg}}"
+  opaqueBackground="{{opaqueBg}}"
+  showCustomContent="{{showCustomContent}}"
+  pageScrollTop="{{pageScrollTop}}"
+  bind:back="onBack"
+>
+  <!-- 自定义搜索框 -->
+  <view slot="center" wx:if="{{showCustomContent}}" class="search-container">
+    <input 
+      class="search-input" 
+      placeholder="搜索内容..." 
+      bindinput="onSearchInput"
+      bindconfirm="onSearchConfirm"
+    />
+  </view>
+</navigation-bar>
+
+<!-- 页面内容 -->
+<view class="content">
+  <view class="section">
+    <text class="section-title">滚动监听功能演示</text>
+    <text class="section-desc">向上滚动页面，观察导航栏背景从透明变为不透明的效果</text>
+  </view>
+  
+  <view class="demo-content">
+    <view class="demo-item" wx:for="{{demoItems}}" wx:key="index">
+      <text class="demo-title">演示内容 {{item}}</text>
+      <text class="demo-text">这是第{{item}}个演示内容，用于展示滚动监听功能。当页面向上滚动时，导航栏背景会从透明自动变为不透明，提供更好的视觉体验。</text>
+    </view>
+  </view>
+</view>
+
+<!-- 控制面板 -->
+<view class="control-panel">
+  <view class="control-section">
+    <text class="control-title">基础控制</text>
+    <view class="control-buttons">
+      <button class="control-btn" bindtap="toggleFixed">
+        {{isFixed ? '取消固定' : '设为固定'}}
+      </button>
+      <button class="control-btn" bindtap="toggleShow">
+        {{isShow ? '隐藏导航栏' : '显示导航栏'}}
+      </button>
+    </view>
+  </view>
+  
+  <view class="control-section">
+    <text class="control-title">滚动监听</text>
+    <view class="control-buttons">
+      <button class="control-btn" bindtap="toggleScroll">
+        {{enableScroll ? '关闭监听' : '开启监听'}}
+      </button>
+      <button class="control-btn" bindtap="toggleCustom">
+        {{showCustomContent ? '隐藏搜索框' : '显示搜索框'}}
+      </button>
+    </view>
+  </view>
+  
+  <view class="control-section">
+    <text class="control-title">背景颜色</text>
+    <view class="color-picker">
+      <view class="color-item" bindtap="setTransparentBg" data-color="rgba(0,0,0,0)">
+        <view class="color-preview transparent"></view>
+        <text>透明</text>
+      </view>
+      <view class="color-item" bindtap="setTransparentBg" data-color="rgba(255,255,255,0)">
+        <view class="color-preview white-transparent"></view>
+        <text>白透明</text>
+      </view>
+    </view>
+    <view class="color-picker">
+      <view class="color-item" bindtap="setOpaqueBg" data-color="#fdacfa">
+        <view class="color-preview pink"></view>
+        <text>粉色</text>
+      </view>
+      <view class="color-item" bindtap="setOpaqueBg" data-color="#007AFF">
+        <view class="color-preview blue"></view>
+        <text>蓝色</text>
+      </view>
+      <view class="color-item" bindtap="setOpaqueBg" data-color="#ffffff">
+        <view class="color-preview white"></view>
+        <text>白色</text>
+      </view>
+    </view>
+  </view>
+</view> 

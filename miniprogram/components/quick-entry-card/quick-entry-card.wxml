@@ -1,0 +1,19 @@
+<!--quick-entry-card.wxml-->
+<view class="feature-card">
+  <view class="feature-item" bindtap="onMemberTap">
+    <view class="feature-value">{{memberStatus}}</view>
+    <view class="feature-label">会员权益</view>
+  </view>
+  <view class="feature-item" bindtap="onPointsTap">
+    <view class="feature-value">{{pointsStatus}}</view>
+    <view class="feature-label">积分</view>
+  </view>
+  <view class="feature-item" bindtap="onCouponTap">
+    <view class="feature-value">{{couponCount}}</view>
+    <view class="feature-label">卡券包</view>
+  </view>
+  <view class="feature-item" bindtap="onBankCardTap">
+    <view class="feature-value">{{bankCardStatus}}</view>
+    <view class="feature-label">银行卡</view>
+  </view>
+</view> 

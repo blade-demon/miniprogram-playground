@@ -1,0 +1,193 @@
+/* components/account-asset-card/account-asset-card.scss */
+.account-asset-card {
+  background: #fff;
+  border-radius: 12rpx;
+  margin: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* 会员激活区域 */
+.membership-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 24rpx 32rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+
+.membership-left {
+  display: flex;
+  align-items: center;
+}
+
+.membership-icon {
+  font-size: 32rpx;
+  margin-right: 16rpx;
+}
+
+.membership-text {
+  font-size: 28rpx;
+  font-weight: 500;
+}
+
+.membership-right {
+  display: flex;
+  align-items: center;
+}
+
+.benefits-text {
+  font-size: 24rpx;
+  margin-right: 8rpx;
+}
+
+.arrow-icon {
+  font-size: 24rpx;
+  font-weight: bold;
+}
+
+/* 我的资产区域 */
+.assets-section {
+  margin: 32rpx;
+  padding-bottom: 32rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.assets-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.assets-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+  text-align: left;
+}
+
+.visibility-toggle {
+  padding: 8rpx;
+}
+
+.eye-icon {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.assets-metrics {
+  display: flex;
+  justify-content: space-between;
+  gap: 20rpx;
+  // margin: 32rpx;
+}
+
+.metric-item {
+  flex: 1;
+  text-align: left;
+}
+
+.metric-label {
+  display: block;
+  font-size: 22rpx;
+  color: #999;
+  margin-bottom: 8rpx;
+}
+
+.metric-value {
+  display: block;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.metric-value.hidden {
+  color: transparent;
+  text-shadow: 0 0 8rpx #333;
+}
+
+/* 当天盈亏颜色样式 */
+.metric-value.profit {
+  color: #FF4757; /* 盈利显示红色 */
+}
+
+.metric-value.loss {
+  color: #2ED573; /* 亏损显示绿色 */
+}
+
+/* 金融产品区域 */
+.products-section {
+  margin: 0 32rpx;
+  padding-bottom: 32rpx;
+  display: flex;
+  border-bottom: 1rpx solid #f5f5f5;
+  position: relative;
+  gap: 32rpx;
+}
+
+.product-item {
+  flex: 1;
+  border-radius: 8rpx;
+  padding: 0;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* 为第一个 product-item 添加右边框作为分隔线 */
+.product-item:first-child::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 1rpx;
+  background-color: #e5e5e5;
+}
+
+.product-info {
+  text-align: left;
+}
+
+.product-name {
+  display: block;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.product-desc {
+  display: block;
+  font-size: 22rpx;
+  color: #666;
+  line-height: 1.4;
+}
+
+/* 投顾服务区域 */
+.advisory-section {
+  margin: 32rpx;
+  padding: 0;
+}
+
+.advisory-header {
+  // margin-bottom: 32rpx;
+}
+
+.advisory-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.advisory-services {
+  border-radius: 8rpx;
+  padding: 0;
+}
+
+.service-item {
+  font-size: 24rpx;
+  color: #666;
+  line-height: 1.5;
+} 

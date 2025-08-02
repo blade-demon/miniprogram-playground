@@ -1,0 +1,209 @@
+/**index.scss**/
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f9fa;
+}
+
+/* 首页轮播图样式 */
+.home-swiper-section {
+  margin: 20rpx;
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+/* 跑马灯组件样式 */
+marquee {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 演示区域样式 */
+.demo-section {
+  margin: 40rpx 20rpx;
+  padding: 30rpx;
+  background: #ffffff;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.08);
+}
+
+.demo-item {
+  margin-bottom: 30rpx;
+}
+
+.demo-label {
+  display: block;
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+  font-weight: 500;
+}
+
+.scrollarea {
+  flex: 1;
+  overflow-y: hidden;
+}
+
+.container {
+  padding-top: 20rpx;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #aaa;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.userinfo-avatar {
+  overflow: hidden;
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.usermotto {
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+}
+
+.user-motto {
+  font-size: 32rpx;
+  color: #666;
+}
+
+.avatar-wrapper {
+  padding: 0;
+  width: 56px !important;
+  border-radius: 8px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.avatar {
+  display: block;
+  width: 56px;
+  height: 56px;
+}
+
+.nickname-wrapper {
+  display: flex;
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+  border-top: .5px solid rgba(0, 0, 0, 0.1);
+  border-bottom: .5px solid rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
+.nickname-label {
+  width: 105px;
+}
+
+.nickname-input {
+  flex: 1;
+}
+
+/* 商品展示区域样式 */
+.products-section {
+  margin-top: 40rpx;
+  padding: 0 20rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.section-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30rpx;
+  text-align: center;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60rpx;
+  height: 4rpx;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 2rpx;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+  margin-bottom: 40rpx;
+}
+
+/* 在小屏幕设备上使用单列布局 */
+@media (max-width: 600rpx) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 测试区域样式 */
+.nav-test-section {
+  margin: 20rpx;
+  padding: 20rpx;
+  background-color: #f5f5f5;
+  border-radius: 10rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  color: #333;
+}
+
+.test-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.test-btn {
+  background-color: #007aff;
+  color: white;
+  border: none;
+  border-radius: 8rpx;
+  padding: 20rpx;
+  font-size: 28rpx;
+  text-align: center;
+}
+
+.test-btn-primary {
+  background-color: #ff6b35;
+}
+
+.test-info {
+  margin-top: 20rpx;
+  padding: 20rpx;
+  background-color: #e8f4fd;
+  border-radius: 8rpx;
+}
+
+.info-text {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.current-status {
+  margin-top: 20rpx;
+  padding: 20rpx;
+  background-color: #f0f0f0;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  color: #666;
+}

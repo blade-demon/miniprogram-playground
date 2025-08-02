@@ -1,0 +1,19 @@
+<!--components/marquee/marquee.wxml-->
+<view class="marquee-container orange-theme" bindtap="onMarqueeTap">
+  <view class="marquee-icon">
+    <text class="icon">🔊</text>
+  </view>
+  <view class="marquee-content">
+    <view class="marquee-wrapper">
+      <view 
+        class="marquee-text" 
+        animation="{{animationData}}"
+        style="transform: translateX({{translateX}}px);">
+        {{currentMessage.content}}
+      </view>
+    </view>
+  </view>
+  <view class="marquee-more" bindtap="onMoreTap">
+    <text class="arrow">></text>
+  </view>
+</view> 

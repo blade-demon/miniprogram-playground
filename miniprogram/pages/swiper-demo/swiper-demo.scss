@@ -1,0 +1,113 @@
+/* pages/swiper-demo/swiper-demo.scss */
+.container {
+  padding: 20px;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+.demo-section {
+  margin-bottom: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #007aff;
+}
+
+/* 演示页面样式 */
+
+/* 控制面板样式 */
+.control-panel {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.control-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.control-item:last-child {
+  border-bottom: none;
+}
+
+.control-label {
+  font-size: 16px;
+  color: #333;
+  min-width: 80px;
+}
+
+/* 滑块样式 */
+slider {
+  flex: 1;
+  margin-left: 20px;
+}
+
+/* 事件日志样式 */
+.event-log {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 15px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.log-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.log-item:last-child {
+  border-bottom: none;
+}
+
+.log-time {
+  font-size: 12px;
+  color: #666;
+  margin-right: 10px;
+  min-width: 60px;
+}
+
+.log-message {
+  font-size: 14px;
+  color: #333;
+  flex: 1;
+}
+
+/* 响应式设计 */
+@media (max-width: 375px) {
+  .container {
+    padding: 15px;
+  }
+  
+  .demo-section {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .section-title {
+    font-size: 16px;
+  }
+  
+  .slide-title {
+    font-size: 20px;
+  }
+  
+  .slide-desc {
+    font-size: 14px;
+  }
+} 

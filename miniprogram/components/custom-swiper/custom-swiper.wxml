@@ -1,0 +1,61 @@
+<!--components/custom-swiper/custom-swiper.wxml-->
+<view class="custom-swiper">
+  <view class="swiper-container" style="height: {{height}}px;">
+    <view 
+      class="swiper-wrapper" 
+      style="transform: translateX({{translateX}}px); transition: {{transition}};">
+      <view 
+        wx:for="{{items}}" 
+        wx:key="index"
+        class="swiper-item"
+        style="width: {{itemWidth}}px;">
+        <block wx:if="{{contentType === 'custom'}}">
+          <view class="custom-content" bindtap="onItemTap" data-index="{{index}}" data-item="{{item}}">
+            <image wx:if="{{item.image}}" src="{{item.image}}" mode="aspectFill" class="custom-image" />
+            <view wx:if="{{item.title || item.content}}" class="custom-text">
+              <text wx:if="{{item.title}}" class="custom-title">{{item.title}}</text>
+              <text wx:if="{{item.content}}" class="custom-desc">{{item.content}}</text>
+            </view>
+          </view>
+        </block>
+        <block wx:else>
+          <image 
+            wx:if="{{item.image}}" 
+            src="{{item.image}}" 
+            mode="aspectFill" 
+            class="default-image"
+            bindtap="onItemTap"
+            data-index="{{index}}"
+            data-item="{{item}}" />
+          <view wx:else class="default-content">
+            {{item.content || item}}
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 指示器 -->
+  <view wx:if="{{showDots}}" class="swiper-dots" role="tablist" aria-label="轮播指示器">
+    <view 
+      wx:for="{{items}}" 
+      wx:key="index"
+      class="dot {{currentIndex === index ? 'active' : ''}}"
+      bindtap="onDotTap"
+      data-index="{{index}}"
+      role="tab"
+      aria-selected="{{currentIndex === index}}"
+      aria-label="第{{index + 1}}项">
+    </view>
+  </view>
+  
+  <!-- 前后按钮 -->
+  <view wx:if="{{showArrows}}" class="swiper-arrows">
+    <view class="arrow arrow-prev" bindtap="onPrevTap">
+      <text class="arrow-icon">‹</text>
+    </view>
+    <view class="arrow arrow-next" bindtap="onNextTap">
+      <text class="arrow-icon">›</text>
+    </view>
+  </view>
+</view> 

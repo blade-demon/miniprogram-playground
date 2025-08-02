@@ -1,0 +1,129 @@
+.custom-nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: #ffffff;
+  
+  .status-bar {
+    width: 100%;
+  }
+  
+  .nav-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    background: inherit;
+    
+    .nav-bg-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      transition: all 0.3s ease;
+      
+      // 背景图片覆盖层，用于添加额外的视觉效果
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.1);
+        z-index: 1;
+      }
+    }
+    
+    .nav-gradient {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    
+    .nav-left {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      
+      .nav-btn {
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        
+        .nav-icon {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+    
+    .nav-title {
+      flex: 2;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 600;
+      color: #000000;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav-right {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      
+      .nav-btn {
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        
+        .nav-icon {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+}
+
+// 动画效果
+.custom-nav-bar {
+  transition: all 0.3s ease;
+  
+  .nav-content {
+    transition: background-color 0.3s ease;
+  }
+}
+
+// 响应式设计
+@media (max-width: 375px) {
+  .custom-nav-bar .nav-content {
+    padding: 0 12px;
+    
+    .nav-title {
+      font-size: 16px;
+    }
+  }
+} 

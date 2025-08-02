@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "feature-grid": "/components/feature-grid/feature-grid"
+  },
+  "navigationBarTitleText": "功能网格演示"
+}

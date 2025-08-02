@@ -1,0 +1,66 @@
+<!--pages/account/account.wxml-->
+<view class="account-page">
+  <!-- 自定义导航栏 -->
+  <custom-navigation-bar
+    id="customNavBar"
+    title="我的账户"
+    titleColor="{{navTitleColor}}"
+    backgroundColor="{{navBackgroundColor}}"
+    backgroundImage="{{navBackgroundImage}}"
+    backgroundImageMode="{{navBackgroundImageMode}}"
+    backgroundImageOpacity="{{navBackgroundImageOpacity}}"
+    backgroundImageFilter="{{navBackgroundImageFilter}}"
+    gradientColors="{{navGradientColors}}"
+    gradientDirection="{{navGradientDirection}}"
+    backgroundType="{{navBackgroundType}}"
+    showBackButton="{{false}}"
+    rightButtons="{{navRightButtons}}"
+    bind:rightButtonTap="onNavRightButtonTap"
+  />
+  
+  <!-- 页面内容 -->
+  <view class="page-content" style="padding-top: {{navBarHeight}}px;">
+    <account-asset-card
+      id="accountAssetCard"
+      totalAssets="{{totalAssets}}"
+      yesterdayEarnings="{{yesterdayEarnings}}"
+      isVisible="{{isVisible}}"
+      bind:membershipTap="onMembershipTap"
+      bind:visibilityChange="onVisibilityChange"
+      bind:productTap="onProductTap"
+    />
+    
+    <!-- 数字格式化测试区域 -->
+    <view class="format-test-section">
+      <view class="section-title">数字格式化测试</view>
+      <view class="test-item">
+        <text class="test-label">原始数字:</text>
+        <text class="test-value">1234567.89</text>
+      </view>
+      <view class="test-item">
+        <text class="test-label">格式化后:</text>
+        <text class="test-value">1,234,567.89</text>
+      </view>
+      <view class="test-item">
+        <text class="test-label">100000 →</text>
+        <text class="test-value">100,000.00</text>
+      </view>
+      <view class="test-item">
+        <text class="test-label">999999.99 →</text>
+        <text class="test-value">999,999.99</text>
+      </view>
+    </view>
+
+    <!-- updateAssets 方法测试区域 -->
+    <view class="format-test-section">
+      <view class="section-title">updateAssets 方法测试</view>
+      <view class="test-buttons">
+        <button class="test-btn" bindtap="loadAssetsFromAPI">模拟API调用更新资产</button>
+        <button class="test-btn" bindtap="testUpdateAssets">测试直接调用</button>
+      </view>
+      <view class="test-info">
+        <text class="info-text">点击按钮测试 updateAssets 方法调用</text>
+      </view>
+    </view>
+  </view>
+</view> 

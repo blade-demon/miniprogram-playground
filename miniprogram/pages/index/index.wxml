@@ -1,0 +1,107 @@
+<!--index.wxml-->
+<!-- <navigation-bar fixed="{{true}}" title="Weixin" back="{{false}}" color="black" background="#FFF">
+</navigation-bar> -->
+<navigation-bar title="商品列表" fixed="{{true}}" enableScroll="{{true}}" transparentBackground="rgba(0,0,0,0)" opaqueBackground="#ffffff" color="#333333">
+  <!-- <view slot="center" class="search-container">
+    <input class="search-input" placeholder="搜索商品..." bindinput="onSearchInput" />
+  </view> -->
+</navigation-bar>
+
+
+<!-- 快速入口卡片组件 -->
+<quick-entry-card memberStatus="{{memberStatus}}" pointsStatus="{{pointsStatus}}" couponCount="{{couponCount}}" bankCardStatus="{{bankCardStatus}}" bind:memberTap="onMemberTap" bind:pointsTap="onPointsTap" bind:couponTap="onCouponTap" bind:bankCardTap="onBankCardTap">
+</quick-entry-card>
+
+<!-- 首页轮播图 -->
+<view class="home-swiper-section">
+  <custom-swiper items="{{homeSwiperItems}}" height="{{180}}" autoplay="{{true}}" interval="{{3000}}" showDots="{{true}}" bind:change="onHomeSwiperChange" bind:itemTap="onHomeSwiperItemTap">
+  </custom-swiper>
+</view>
+
+<!-- 功能网格组件 -->
+<feature-grid bind:featureTap="onFeatureTap" />
+
+<marquee messages="{{demoMessages}}" speed="{{100}}" bind:messageClick="onMarqueeMessageClick" bind:moreClick="onMarqueeMoreClick">
+</marquee>
+
+<!-- 资产卡片组件 -->
+<account-asset-card id="accountAssetCard" totalAssets="{{totalAssets}}" yesterdayEarnings="{{yesterdayEarnings}}" isVisible="{{isVisible}}" bind:membershipTap="onMembershipTap" bind:visibilityChange="onVisibilityChange" bind:productTap="onProductTap">
+</account-asset-card>
+
+<!-- 导航栏背景图片测试区域 -->
+<view class="nav-test-section">
+  <view class="section-title">导航栏背景图片测试</view>
+  <view class="test-buttons">
+    <button class="test-btn" bindtap="setNavigationBarBackgroundImage">设置背景图片</button>
+    <button class="test-btn" bindtap="switchBackgroundImage">切换背景图片</button>
+    <button class="test-btn" bindtap="clearBackgroundImage">清除背景图片</button>
+    <button class="test-btn test-btn-primary" bindtap="goToNavTestPage">完整测试页面</button>
+  </view>
+  <view class="current-status">
+    <text>当前背景图片: {{navBackgroundImage || '无'}}</text>
+  </view>
+</view>
+
+<!-- updateAssets 方法测试区域 -->
+<!-- <view class="nav-test-section">
+  <view class="section-title">updateAssets 方法测试</view>
+  <view class="test-buttons">
+    <button class="test-btn" bindtap="loadAssetsFromAPI">模拟API调用更新资产</button>
+    <button class="test-btn" bindtap="testUpdateAssets">测试直接调用</button>
+  </view>
+  <view class="test-info">
+    <text class="info-text">点击按钮测试 updateAssets 方法调用</text>
+  </view>
+</view> -->
+
+<!-- 轮播组件演示区域 -->
+<!-- <view class="nav-test-section">
+  <view class="section-title">轮播组件演示</view>
+  <view class="test-buttons">
+    <button class="test-btn test-btn-primary" bindtap="goToSwiperDemo">轮播组件演示</button>
+  </view>
+  <view class="test-info">
+    <text class="info-text">查看自定义轮播组件的功能演示</text>
+  </view>
+</view> -->
+
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <!-- <view class="userinfo">
+      <block wx:if="{{canIUseNicknameComp && !hasUserInfo}}">
+        <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+          <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+        </button>
+        <view class="nickname-wrapper">
+          <text class="nickname-label">昵称</text>
+          <input type="nickname" class="nickname-input" placeholder="请输入昵称" bind:change="onInputChange" />
+        </view>
+      </block>
+      <block wx:elif="{{!hasUserInfo}}">
+        <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
+        <view wx:else> 请使用2.10.4及以上版本基础库 </view>
+      </block>
+      <block wx:else>
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      </block>
+    </view>
+    <view class="usermotto">
+      <text class="user-motto">{{motto}}</text>
+    </view> -->
+
+    <!-- 商品展示区域 -->
+    <!-- <view class="products-section">
+      <view class="section-title">热门商品</view>
+      <view class="products-grid">
+        <product-card 
+          wx:for="{{products}}" 
+          wx:key="id" 
+          product="{{item}}"
+          bind:cardTap="onProductCardTap"
+          bind:addToCart="onAddToCart">
+        </product-card>
+      </view>
+    </view> -->
+  </view>
+</scroll-view>

@@ -1,0 +1,231 @@
+/* feature-grid.scss */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20rpx;
+  padding: 30rpx 20rpx;
+  background-color: #fff;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20rpx 10rpx;
+  border-radius: 12rpx;
+  background-color: #ffffff;
+  // box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.feature-item:active {
+  transform: scale(0.95);
+}
+
+.feature-icon-container {
+  position: relative;
+  margin-bottom: 12rpx;
+}
+
+.feature-icon {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 12rpx;
+  background-color: #1890ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.feature-badge {
+  position: absolute;
+  top: -8rpx;
+  right: -8rpx;
+  background-color: #ff6b35;
+  color: #ffffff;
+  font-size: 20rpx;
+  padding: 4rpx 8rpx;
+  border-radius: 8rpx;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.feature-name {
+  font-size: 24rpx;
+  color: #333333;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* 图标样式定义 */
+.luqianbao-icon::after {
+  content: '';
+  width: 40rpx;
+  height: 40rpx;
+  background-color: #ffffff;
+  border-radius: 50%;
+  position: relative;
+}
+
+.luqianbao-icon::before {
+  content: '';
+  width: 12rpx;
+  height: 12rpx;
+  background-color: #1890ff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border-radius: 2rpx;
+}
+
+.wenjianlicai-icon::after {
+  content: '';
+  width: 40rpx;
+  height: 40rpx;
+  background-color: #ffffff;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  position: relative;
+}
+
+.wenjianlicai-icon::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 8rpx solid transparent;
+  border-right: 8rpx solid transparent;
+  border-bottom: 16rpx solid #1890ff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.jijin-icon::after {
+  content: '';
+  width: 40rpx;
+  height: 20rpx;
+  background: linear-gradient(45deg, #ffffff 25%, transparent 25%, transparent 75%, #ffffff 75%);
+  background-size: 8rpx 8rpx;
+  position: relative;
+}
+
+.touguguanjia-icon::after {
+  content: '';
+  width: 24rpx;
+  height: 32rpx;
+  background-color: #ffffff;
+  border-radius: 4rpx;
+  position: relative;
+}
+
+.touguguanjia-icon::before {
+  content: '';
+  width: 20rpx;
+  height: 20rpx;
+  background-color: #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  top: -8rpx;
+  left: 2rpx;
+}
+
+.shiwanzhuanqu-icon::after {
+  content: '10';
+  color: #1890ff;
+  font-size: 32rpx;
+  font-weight: bold;
+  position: relative;
+}
+
+.shiwanzhuanqu-icon::before {
+  content: '';
+  width: 30rpx;
+  height: 2rpx;
+  background-color: #1890ff;
+  position: absolute;
+  bottom: 8rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.huiyuanquanyi-icon::after {
+  content: '';
+  width: 40rpx;
+  height: 40rpx;
+  background-color: #ffffff;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  position: relative;
+}
+
+.huiyuanquanyi-icon::before {
+  content: 'V';
+  color: #1890ff;
+  font-size: 24rpx;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.yaohaoyou-icon::after {
+  content: '';
+  width: 32rpx;
+  height: 32rpx;
+  background-color: #ffffff;
+  border-radius: 50%;
+  position: relative;
+}
+
+.hongli-icon::after {
+  content: '¥';
+  color: #1890ff;
+  font-size: 32rpx;
+  font-weight: bold;
+  position: relative;
+}
+
+.hongli-icon::before {
+  content: '';
+  width: 30rpx;
+  height: 2rpx;
+  background-color: #1890ff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.gushouplus-icon::after {
+  content: '';
+  width: 40rpx;
+  height: 40rpx;
+  background-color: #ffffff;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  position: relative;
+}
+
+.gushouplus-icon::before {
+  content: '+';
+  color: #1890ff;
+  font-size: 24rpx;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.quanbu-icon::after {
+  content: '';
+  width: 40rpx;
+  height: 8rpx;
+  background-color: #1890ff;
+  border-radius: 4rpx;
+  position: relative;
+  box-shadow: 0 8rpx 0 #1890ff, 0 16rpx 0 #1890ff;
+} 

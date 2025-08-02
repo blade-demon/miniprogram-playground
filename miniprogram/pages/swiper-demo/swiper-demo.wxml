@@ -1,0 +1,111 @@
+<!--pages/swiper-demo/swiper-demo.wxml-->
+<navigation-bar title="轮播组件演示" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+
+<scroll-view class="container" scroll-y>
+  <!-- 基础轮播 -->
+  <view class="demo-section">
+    <view class="section-title">基础轮播</view>
+    <custom-swiper 
+      items="{{basicItems}}" 
+      height="{{200}}"
+      bind:change="onBasicSwiperChange"
+      bind:itemTap="onBasicSwiperItemTap">
+    </custom-swiper>
+  </view>
+
+  <!-- 带箭头的轮播 -->
+  <view class="demo-section">
+    <view class="section-title">带箭头轮播</view>
+    <custom-swiper 
+      items="{{arrowItems}}" 
+      height="{{250}}"
+      showArrows="{{true}}"
+      interval="{{4000}}"
+      bind:change="onArrowSwiperChange"
+      bind:itemTap="onArrowSwiperItemTap">
+    </custom-swiper>
+  </view>
+
+  <!-- 自定义内容轮播 -->
+  <view class="demo-section">
+    <view class="section-title">自定义内容轮播</view>
+    <custom-swiper 
+      items="{{customItems}}" 
+      height="{{300}}"
+      contentType="custom"
+      showArrows="{{true}}"
+      showDots="{{true}}"
+      duration="{{500}}"
+      bind:change="onCustomSwiperChange"
+      bind:itemTap="onCustomSwiperItemTap">
+    </custom-swiper>
+  </view>
+
+  <!-- 受控制的轮播 -->
+  <view class="demo-section">
+    <view class="section-title">受控制的轮播</view>
+    <custom-swiper 
+      items="{{controlledItems}}" 
+      height="{{250}}"
+      autoplay="{{autoplay}}"
+      showArrows="{{showArrows}}"
+      showDots="{{showDots}}"
+      interval="{{interval}}"
+      duration="{{duration}}"
+      bind:change="onControlledSwiperChange"
+      bind:itemTap="onControlledSwiperItemTap">
+    </custom-swiper>
+  </view>
+
+  <!-- 控制面板 -->
+  <view class="demo-section">
+    <view class="section-title">控制面板</view>
+    <view class="control-panel">
+      <view class="control-item">
+        <text class="control-label">自动播放:</text>
+        <switch checked="{{autoplay}}" bindchange="onAutoplayChange"></switch>
+      </view>
+      <view class="control-item">
+        <text class="control-label">显示箭头:</text>
+        <switch checked="{{showArrows}}" bindchange="onArrowsChange"></switch>
+      </view>
+      <view class="control-item">
+        <text class="control-label">显示指示器:</text>
+        <switch checked="{{showDots}}" bindchange="onDotsChange"></switch>
+      </view>
+      <view class="control-item">
+        <text class="control-label">播放间隔:</text>
+        <slider 
+          value="{{interval}}" 
+          min="1000" 
+          max="8000" 
+          step="500"
+          show-value="{{true}}"
+          bindchange="onIntervalChange">
+        </slider>
+      </view>
+      <view class="control-item">
+        <text class="control-label">动画时长:</text>
+        <slider 
+          value="{{duration}}" 
+          min="100" 
+          max="1000" 
+          step="100"
+          show-value="{{true}}"
+          bindchange="onDurationChange">
+        </slider>
+      </view>
+    </view>
+  </view>
+
+  <!-- 事件日志 -->
+  <view class="demo-section">
+    <view class="section-title">事件日志</view>
+    <view class="event-log">
+      <view wx:for="{{eventLogs}}" wx:key="index" class="log-item">
+        <text class="log-time">{{item.time}}</text>
+        <text class="log-message">{{item.message}}</text>
+      </view>
+    </view>
+  </view>
+</scroll-view> 

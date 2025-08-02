@@ -1,0 +1,60 @@
+<!--components/account-asset-card/account-asset-card.wxml-->
+<view class="account-asset-card">
+  <!-- 会员激活区域 -->
+  <view class="membership-section" bindtap="onMembershipTap">
+    <view class="membership-left">
+      <view class="membership-icon">👁️</view>
+      <text class="membership-text">立即激活会员</text>
+    </view>
+    <view class="membership-right">
+      <text class="benefits-text">领取尊享权益</text>
+      <view class="arrow-icon">></view>
+    </view>
+  </view>
+
+  <!-- 我的资产区域 -->
+  <view class="assets-section">
+    <view class="assets-header">
+      <text class="assets-title">我的资产</text>
+      <view class="visibility-toggle" bindtap="onToggleVisibility">
+        <view class="eye-icon">👁️</view>
+      </view>
+    </view>
+    <view class="assets-metrics">
+      <view class="metric-item">
+        <text class="metric-label">总资产(元)</text>
+        <text class="metric-value {{isVisible ? '' : 'hidden'}}">{{totalAssets}}</text>
+      </view>
+      <view class="metric-item">
+        <text class="metric-label">昨日收益</text>
+        <text class="metric-value {{isVisible ? '' : 'hidden'}}">{{yesterdayEarnings}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 金融产品区域 -->
+  <view class="products-section">
+    <view class="product-item" bindtap="onProductTap" data-product="luqianbao">
+      <view class="product-info">
+        <text class="product-name">陆钱宝</text>
+        <text class="product-desc">最高31万快赎额度</text>
+      </view>
+    </view>
+    <view class="product-item" bindtap="onProductTap" data-product="fund">
+      <view class="product-info">
+        <text class="product-name">基金</text>
+        <text class="product-desc">申购费率一折起</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 投顾服务区域 -->
+  <view class="advisory-section">
+    <view class="advisory-header">
+      <text class="advisory-title">投顾(含全委账户)</text>
+    </view>
+    <view class="advisory-services">
+      <text class="service-item">全委投顾、策略投顾</text>
+    </view>
+  </view>
+</view> 
