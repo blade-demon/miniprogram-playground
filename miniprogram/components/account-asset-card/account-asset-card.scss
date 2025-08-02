@@ -112,11 +112,6 @@
   color: #333;
 }
 
-.metric-value.hidden {
-  color: transparent;
-  text-shadow: 0 0 8rpx #333;
-}
-
 /* 当天盈亏颜色样式 */
 .metric-value.profit {
   color: #FF4757; /* 盈利显示红色 */

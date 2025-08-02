@@ -10,16 +10,25 @@ Component({
     totalAssets: {
       type: String,
       value: "0.00",
+      observer: function (newVal: string) {
+        this.updateDisplayValues();
+      },
     },
     // 昨日收益
     yesterdayEarnings: {
       type: String,
       value: "0.00",
+      observer: function (newVal: string) {
+        this.updateDisplayValues();
+      },
     },
     // 是否显示资产数值
     isVisible: {
       type: Boolean,
       value: true,
+      observer: function (newVal: boolean) {
+        this.updateDisplayValues();
+      },
     },
 
     lufaxAsset: {
@@ -33,7 +42,10 @@ Component({
   /**
    * 组件的初始数据
    */
-  data: {},
+  data: {
+    displayTotalAssets: "0.00",
+    displayYesterdayEarnings: "0.00",
+  },
 
   /**
    * 组件的方法列表
@@ -52,7 +64,13 @@ Component({
     // 切换资产显示/隐藏
     onToggleVisibility() {
       const isVisible = !this.properties.isVisible;
-      this.setData({ isVisible });
+      this.setData({
+        isVisible,
+        displayTotalAssets: isVisible ? this.properties.totalAssets : "****",
+        displayYesterdayEarnings: isVisible
+          ? this.properties.yesterdayEarnings
+          : "****",
+      });
       this.triggerEvent("visibilityChange", { isVisible });
 
       // 显示提示
@@ -85,15 +103,45 @@ Component({
       return formatNumberWithCommas(num, 2);
     },
 
+    // 更新显示值
+    updateDisplayValues() {
+      const isVisible = this.properties.isVisible;
+      this.setData({
+        displayTotalAssets: isVisible ? this.properties.totalAssets : "****",
+        displayYesterdayEarnings: isVisible
+          ? this.properties.yesterdayEarnings
+          : "****",
+      });
+    },
+
     // 更新资产数据
     updateAssets(totalAssets: number, yesterdayEarnings: number) {
+      const formattedTotalAssets = this.formatNumber(totalAssets);
+      const formattedYesterdayEarnings = this.formatNumber(yesterdayEarnings);
+
       this.setData({
-        totalAssets: this.formatNumber(totalAssets),
-        yesterdayEarnings: this.formatNumber(yesterdayEarnings),
+        totalAssets: formattedTotalAssets,
+        yesterdayEarnings: formattedYesterdayEarnings,
+        displayTotalAssets: this.properties.isVisible
+          ? formattedTotalAssets
+          : "****",
+        displayYesterdayEarnings: this.properties.isVisible
+          ? formattedYesterdayEarnings
+          : "****",
         lufaxAsset: {
           assetList: [],
         },
       });
+    },
+  },
+
+  /**
+   * 组件生命周期
+   */
+  lifetimes: {
+    attached() {
+      // 组件初始化时更新显示值
+      this.updateDisplayValues();
     },
   },
 });
