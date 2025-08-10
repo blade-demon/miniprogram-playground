@@ -1,7 +1,7 @@
 <!--pages/account/account.wxml-->
 <view class="account-page">
   <!-- 自定义导航栏 -->
-  <custom-navigation-bar
+  <!-- <custom-navigation-bar
     id="customNavBar"
     title="我的账户"
     titleColor="{{navTitleColor}}"
@@ -16,11 +16,11 @@
     showBackButton="{{false}}"
     rightButtons="{{navRightButtons}}"
     bind:rightButtonTap="onNavRightButtonTap"
-  />
+  /> -->
   
   <!-- 页面内容 -->
   <view class="page-content" style="padding-top: {{navBarHeight}}px;">
-    <account-asset-card
+    <!-- <account-asset-card
       id="accountAssetCard"
       totalAssets="{{totalAssets}}"
       yesterdayEarnings="{{yesterdayEarnings}}"
@@ -28,10 +28,10 @@
       bind:membershipTap="onMembershipTap"
       bind:visibilityChange="onVisibilityChange"
       bind:productTap="onProductTap"
-    />
+    /> -->
     
     <!-- 数字格式化测试区域 -->
-    <view class="format-test-section">
+    <!-- <view class="format-test-section">
       <view class="section-title">数字格式化测试</view>
       <view class="test-item">
         <text class="test-label">原始数字:</text>
@@ -49,10 +49,10 @@
         <text class="test-label">999999.99 →</text>
         <text class="test-value">999,999.99</text>
       </view>
-    </view>
+    </view> -->
 
     <!-- updateAssets 方法测试区域 -->
-    <view class="format-test-section">
+    <!-- <view class="format-test-section">
       <view class="section-title">updateAssets 方法测试</view>
       <view class="test-buttons">
         <button class="test-btn" bindtap="loadAssetsFromAPI">模拟API调用更新资产</button>
@@ -61,6 +61,6 @@
       <view class="test-info">
         <text class="info-text">点击按钮测试 updateAssets 方法调用</text>
       </view>
-    </view>
+    </view> -->
   </view>
 </view> 

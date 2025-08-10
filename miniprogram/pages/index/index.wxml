@@ -9,8 +9,8 @@
 
 
 <!-- 快速入口卡片组件 -->
-<quick-entry-card memberStatus="{{memberStatus}}" pointsStatus="{{pointsStatus}}" couponCount="{{couponCount}}" bankCardStatus="{{bankCardStatus}}" bind:memberTap="onMemberTap" bind:pointsTap="onPointsTap" bind:couponTap="onCouponTap" bind:bankCardTap="onBankCardTap">
-</quick-entry-card>
+<!-- <quick-entry-card memberStatus="{{memberStatus}}" pointsStatus="{{pointsStatus}}" couponCount="{{couponCount}}" bankCardStatus="{{bankCardStatus}}" bind:memberTap="onMemberTap" bind:pointsTap="onPointsTap" bind:couponTap="onCouponTap" bind:bankCardTap="onBankCardTap">
+</quick-entry-card> -->
 
 <!-- 首页轮播图 -->
 <view class="home-swiper-section">
@@ -19,17 +19,15 @@
 </view>
 
 <!-- 功能网格组件 -->
-<feature-grid bind:featureTap="onFeatureTap" />
+<!-- <feature-grid bind:featureTap="onFeatureTap" /> -->
 
-<marquee messages="{{demoMessages}}" speed="{{100}}" bind:messageClick="onMarqueeMessageClick" bind:moreClick="onMarqueeMoreClick">
-</marquee>
 
 <!-- 资产卡片组件 -->
 <account-asset-card id="accountAssetCard" totalAssets="{{totalAssets}}" yesterdayEarnings="{{yesterdayEarnings}}" isVisible="{{isVisible}}" bind:membershipTap="onMembershipTap" bind:visibilityChange="onVisibilityChange" bind:productTap="onProductTap">
 </account-asset-card>
 
 <!-- 导航栏背景图片测试区域 -->
-<view class="nav-test-section">
+<!-- <view class="nav-test-section">
   <view class="section-title">导航栏背景图片测试</view>
   <view class="test-buttons">
     <button class="test-btn" bindtap="setNavigationBarBackgroundImage">设置背景图片</button>
@@ -40,7 +38,7 @@
   <view class="current-status">
     <text>当前背景图片: {{navBackgroundImage || '无'}}</text>
   </view>
-</view>
+</view> -->
 
 <!-- updateAssets 方法测试区域 -->
 <!-- <view class="nav-test-section">

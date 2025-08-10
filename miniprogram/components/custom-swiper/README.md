@@ -14,6 +14,7 @@
 - ✅ 支持自定义内容
 - ✅ 指示器悬停效果
 - ✅ 无障碍访问支持
+- ✅ 手势滑动切换
 
 ## 使用方法
 
@@ -49,6 +50,8 @@
   showArrows="{{true}}"
   loop="{{true}}"
   duration="{{500}}"
+  enableSwipe="{{true}}"
+  swipeThreshold="{{50}}"
   bind:change="onSwiperChange"
   bind:itemTap="onSwiperItemTap">
 </custom-swiper>
@@ -90,17 +93,19 @@ onSwiperItemTap(e) {
 
 ## 属性说明
 
-| 属性名      | 类型    | 默认值  | 说明                   |
-| ----------- | ------- | ------- | ---------------------- |
-| items       | Array   | []      | 轮播数据数组           |
-| height      | Number  | 200     | 轮播高度（像素）       |
-| autoplay    | Boolean | true    | 是否自动播放           |
-| interval    | Number  | 3000    | 自动播放间隔（毫秒）   |
-| showDots    | Boolean | true    | 是否显示指示器         |
-| showArrows  | Boolean | false   | 是否显示前后箭头       |
-| loop        | Boolean | true    | 是否循环播放           |
-| duration    | Number  | 300     | 动画持续时间（毫秒）   |
-| contentType | String  | 'image' | 内容类型：image/custom |
+| 属性名         | 类型    | 默认值  | 说明                               |
+| -------------- | ------- | ------- | ---------------------------------- |
+| items          | Array   | []      | 轮播数据数组                       |
+| height         | Number  | 200     | 轮播高度（像素）                   |
+| autoplay       | Boolean | true    | 是否自动播放                       |
+| interval       | Number  | 3000    | 自动播放间隔（毫秒）               |
+| showDots       | Boolean | true    | 是否显示指示器                     |
+| showArrows     | Boolean | false   | 是否显示前后箭头                   |
+| loop           | Boolean | true    | 是否循环播放                       |
+| duration       | Number  | 300     | 动画持续时间（毫秒）               |
+| contentType    | String  | 'image' | 内容类型：image/custom             |
+| enableSwipe    | Boolean | true    | 是否启用手势滑动                   |
+| swipeThreshold | Number  | 50      | 滑动阈值（像素），超过此距离才切换 |
 
 ## 事件说明
 
@@ -136,6 +141,49 @@ onSwiperItemTap(e) {
 // 简单字符串
 "简单文本内容"
 ```
+
+## 手势滑动功能
+
+### 功能说明
+
+组件支持手势滑动切换，用户可以通过左右滑动来切换轮播图片：
+
+- **向左滑动**：切换到下一张图片
+- **向右滑动**：切换到上一张图片
+- **滑动阈值**：需要滑动超过设定距离才会触发切换
+- **自动播放暂停**：滑动时自动暂停自动播放，滑动结束后恢复
+
+### 使用方法
+
+```xml
+<!-- 启用手势滑动（默认启用） -->
+<custom-swiper
+  items="{{swiperItems}}"
+  enableSwipe="{{true}}"
+  swipeThreshold="{{50}}">
+</custom-swiper>
+
+<!-- 禁用手势滑动 -->
+<custom-swiper
+  items="{{swiperItems}}"
+  enableSwipe="{{false}}">
+</custom-swiper>
+```
+
+### 滑动参数说明
+
+- **enableSwipe**: 是否启用手势滑动，默认为 `true`
+- **swipeThreshold**: 滑动阈值，单位为像素，默认为 `50px`
+  - 滑动距离超过此值才会触发切换
+  - 滑动距离不足时会回到原位
+  - 建议值范围：30-100px
+
+### 滑动体验优化
+
+1. **防误触**：只有水平滑动距离大于垂直滑动距离时才会触发
+2. **平滑动画**：滑动过程中实时跟随手指移动
+3. **弹性回弹**：滑动距离不足时平滑回到原位
+4. **自动播放协调**：滑动时暂停自动播放，手动操作后重置计时器，避免冲突
 
 ## 样式定制
 
@@ -181,15 +229,16 @@ onSwiperItemTap(e) {
 | 循环播放   | ✅          | ✅            | 都支持     |
 | 自定义动画 | ✅          | ✅            | 都支持     |
 | 响应式     | ✅          | ✅            | 都支持     |
-| 触摸滑动   | ❌          | ❌            | 小程序限制 |
+| 触摸滑动   | ✅          | ✅            | 都支持     |
 | 无限滚动   | ❌          | ❌            | 小程序限制 |
 
 ## 注意事项
 
-1. **触摸滑动**：由于小程序的技术限制，暂不支持触摸滑动功能
+1. **手势滑动**：支持左右滑动切换，滑动距离超过阈值才会触发切换
 2. **无限滚动**：由于性能考虑，暂不支持无限滚动效果
 3. **性能优化**：建议轮播项数量控制在 10 个以内
 4. **图片加载**：建议使用 CDN 图片以提高加载速度
+5. **滑动冲突**：组件会自动识别水平滑动，使用 `catchtouchmove` 阻止水平滑动时的事件冒泡，垂直滑动时保持页面滚动功能
 
 ## 指示器样式说明
 

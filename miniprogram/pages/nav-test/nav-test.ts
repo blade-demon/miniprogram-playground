@@ -17,6 +17,7 @@ Page({
 
   // 页面滚动事件
   onPageScroll(e: any) {
+    console.log('page scroll', e.scrollTop);
     if (this.data.enableScroll) {
       this.setData({
         pageScrollTop: e.scrollTop,

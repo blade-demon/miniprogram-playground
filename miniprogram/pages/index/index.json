@@ -6,6 +6,7 @@
     "quick-entry-card": "/components/quick-entry-card/quick-entry-card",
     "account-asset-card": "/components/account-asset-card/account-asset-card",
     "feature-grid": "/components/feature-grid/feature-grid",
-    "custom-swiper": "/components/custom-swiper/custom-swiper"
+    "custom-swiper": "/components/custom-swiper/custom-swiper",
+    "arrow-right-icon": "/components/arrow-right-icon/arrow-right-icon"
   }
 }

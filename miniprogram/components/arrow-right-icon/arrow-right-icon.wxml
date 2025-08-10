@@ -1,0 +1,7 @@
+<!-- <view class="arrow-right-icon {{disabled ? 'disabled' : ''}}" bindtap="onTap" style="color: {{color}}; font-size: {{size}}px;">
+  <text class="arrow-text">></text>
+</view>  -->
+
+<view class="arrow-right-icon {{disabled ? 'disabled' : ''}}" bindtap="onTap" style="width: {{size}}px; height: {{size}}px;">
+  <view class="arrow-head" style="border-left-color: {{color}};"></view>
+</view> 

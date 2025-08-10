@@ -8,7 +8,6 @@
 
 /* 会员激活区域 */
 .membership-section {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   padding: 24rpx 32rpx;
   display: flex;
   justify-content: space-between;
@@ -17,6 +16,7 @@
   border-radius: 12rpx 12rpx 0 0;
   position: relative;
   z-index: 1;
+  box-shadow: 0 4rpx 20rpx rgba(102, 126, 234, 0.3);
 }
 
 .membership-left {

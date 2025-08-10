@@ -13,6 +13,36 @@
     </custom-swiper>
   </view>
 
+  <!-- 手势滑动轮播 -->
+  <view class="demo-section">
+    <view class="section-title">手势滑动轮播</view>
+    <view class="section-desc">支持左右滑动切换，滑动距离超过50px才触发切换</view>
+    <custom-swiper 
+      items="{{swipeItems}}" 
+      height="{{250}}"
+      enableSwipe="{{true}}"
+      swipeThreshold="{{50}}"
+      showArrows="{{true}}"
+      bind:change="onSwipeSwiperChange"
+      bind:itemTap="onSwipeSwiperItemTap">
+    </custom-swiper>
+  </view>
+
+  <!-- 自定义滑动阈值 -->
+  <view class="demo-section">
+    <view class="section-title">自定义滑动阈值</view>
+    <view class="section-desc">滑动阈值设置为30px，更容易触发切换</view>
+    <custom-swiper 
+      items="{{thresholdItems}}" 
+      height="{{200}}"
+      enableSwipe="{{true}}"
+      swipeThreshold="{{30}}"
+      showDots="{{true}}"
+      bind:change="onThresholdSwiperChange"
+      bind:itemTap="onThresholdSwiperItemTap">
+    </custom-swiper>
+  </view>
+
   <!-- 带箭头的轮播 -->
   <view class="demo-section">
     <view class="section-title">带箭头轮播</view>
@@ -52,6 +82,8 @@
       showDots="{{showDots}}"
       interval="{{interval}}"
       duration="{{duration}}"
+      enableSwipe="{{enableSwipe}}"
+      swipeThreshold="{{swipeThreshold}}"
       bind:change="onControlledSwiperChange"
       bind:itemTap="onControlledSwiperItemTap">
     </custom-swiper>
@@ -74,6 +106,10 @@
         <switch checked="{{showDots}}" bindchange="onDotsChange"></switch>
       </view>
       <view class="control-item">
+        <text class="control-label">启用手势滑动:</text>
+        <switch checked="{{enableSwipe}}" bindchange="onSwipeChange"></switch>
+      </view>
+      <view class="control-item">
         <text class="control-label">播放间隔:</text>
         <slider 
           value="{{interval}}" 
@@ -93,6 +129,17 @@
           step="100"
           show-value="{{true}}"
           bindchange="onDurationChange">
+        </slider>
+      </view>
+      <view class="control-item">
+        <text class="control-label">滑动阈值:</text>
+        <slider 
+          value="{{swipeThreshold}}" 
+          min="20" 
+          max="100" 
+          step="10"
+          show-value="{{true}}"
+          bindchange="onSwipeThresholdChange">
         </slider>
       </view>
     </view>

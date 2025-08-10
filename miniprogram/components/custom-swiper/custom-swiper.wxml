@@ -1,6 +1,12 @@
 <!--components/custom-swiper/custom-swiper.wxml-->
 <view class="custom-swiper">
-  <view class="swiper-container" style="height: {{height}}px;">
+  <view 
+    class="swiper-container" 
+    style="height: {{height}}px;"
+    bindtouchstart="onTouchStart"
+    catchtouchmove="onTouchMove"
+    bindtouchend="onTouchEnd"
+    bindtouchcancel="onTouchCancel">
     <view 
       class="swiper-wrapper" 
       style="transform: translateX({{translateX}}px); transition: {{transition}};">

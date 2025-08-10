@@ -33,6 +33,49 @@ Page({
       },
     ],
 
+    // 手势滑动轮播数据
+    swipeItems: [
+      {
+        image:
+          "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=250&fit=crop",
+        title: "手势滑动1",
+      },
+      {
+        image:
+          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=250&fit=crop",
+        title: "手势滑动2",
+      },
+      {
+        image:
+          "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=250&fit=crop",
+        title: "手势滑动3",
+      },
+      {
+        image:
+          "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=250&fit=crop",
+        title: "手势滑动4",
+      },
+    ],
+
+    // 自定义滑动阈值轮播数据
+    thresholdItems: [
+      {
+        image:
+          "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=200&fit=crop",
+        title: "低阈值1",
+      },
+      {
+        image:
+          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=200&fit=crop",
+        title: "低阈值2",
+      },
+      {
+        image:
+          "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=200&fit=crop",
+        title: "低阈值3",
+      },
+    ],
+
     // 带箭头轮播数据
     arrowItems: [
       {
@@ -104,9 +147,11 @@ Page({
     showDots: true,
     interval: 3000,
     duration: 400,
+    enableSwipe: true,
+    swipeThreshold: 50,
 
     // 事件日志
-    eventLogs: [],
+    eventLogs: [] as Array<{ time: string; message: string }>,
   },
 
   /**
@@ -127,6 +172,32 @@ Page({
   onBasicSwiperItemTap(e: any) {
     const { index, item } = e.detail;
     this.addLog(`点击基础轮播第${index + 1}项: ${item.title}`);
+  },
+
+  /**
+   * 手势滑动轮播事件处理
+   */
+  onSwipeSwiperChange(e: any) {
+    const { index, item } = e.detail;
+    this.addLog(`手势滑动轮播切换到第${index + 1}项: ${item.title}`);
+  },
+
+  onSwipeSwiperItemTap(e: any) {
+    const { index, item } = e.detail;
+    this.addLog(`点击手势滑动轮播第${index + 1}项: ${item.title}`);
+  },
+
+  /**
+   * 自定义滑动阈值轮播事件处理
+   */
+  onThresholdSwiperChange(e: any) {
+    const { index, item } = e.detail;
+    this.addLog(`低阈值轮播切换到第${index + 1}项: ${item.title}`);
+  },
+
+  onThresholdSwiperItemTap(e: any) {
+    const { index, item } = e.detail;
+    this.addLog(`点击低阈值轮播第${index + 1}项: ${item.title}`);
   },
 
   /**
@@ -192,6 +263,13 @@ Page({
     this.addLog(`显示指示器: ${e.detail.value ? "开启" : "关闭"}`);
   },
 
+  onSwipeChange(e: any) {
+    this.setData({
+      enableSwipe: e.detail.value,
+    });
+    this.addLog(`手势滑动: ${e.detail.value ? "开启" : "关闭"}`);
+  },
+
   onIntervalChange(e: any) {
     this.setData({
       interval: e.detail.value,
@@ -204,6 +282,13 @@ Page({
       duration: e.detail.value,
     });
     this.addLog(`动画时长: ${e.detail.value}ms`);
+  },
+
+  onSwipeThresholdChange(e: any) {
+    this.setData({
+      swipeThreshold: e.detail.value,
+    });
+    this.addLog(`滑动阈值: ${e.detail.value}px`);
   },
 
   /**

@@ -1,0 +1,3 @@
+<view class="arrow-right-icon {{disabled ? 'disabled' : ''}}" bindtap="onTap">
+  <icon type="arrow" size="{{size}}" color="{{color}}" />
+</view> 

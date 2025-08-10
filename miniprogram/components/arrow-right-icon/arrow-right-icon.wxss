@@ -1,0 +1,21 @@
+.arrow-right-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.arrow-head {
+  width: 0;
+  height: 0;
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  border-left: 8px solid #333333;
+  margin-left: 2px;
+}
+
+.arrow-right-icon.disabled {
+  opacity: 0.5;
+} 
